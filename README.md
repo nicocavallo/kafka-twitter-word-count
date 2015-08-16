@@ -12,20 +12,24 @@ The app should perform three main tasks:
 2. Split those tweets in words
 3. Count the words
 
-Instead of creating a Gigantic Application to perform those three operations, we will split our program in three different programs connected via [Apache Kafka](http://kafka.apache.org/).
+Instead of creating a Gigantic Application to perform those three operations, we will split our program in three different programs sending messages to each other via [Apache Kafka](http://kafka.apache.org/).
 #### The flow
 ![Kafka Twitter Word Count Flow](https://dl.dropboxusercontent.com/s/lkbsnlj7pgc7pux/kafka_twitter_word_count_example.png?dl=0)
 
 #### The tools
 
-1. [Sbt](http://www.scala-sbt.org/)
-2. [TwitterJ](http://twitter4j.org/en/index.html)
-3. [Apache Kafka](https://www.apache.org/dyn/closer.cgi?path=/kafka/0.8.2.0/kafka_2.10-0.8.2.0.tgz)
+1. [Sbt](http://www.scala-sbt.org/)(Scala Build Tool)
+2. [TwitterJ](http://twitter4j.org/en/index.html) (Twitter Client)
+3. [Apache Kafka](https://www.apache.org/dyn/closer.cgi?path=/kafka/0.8.2.0/kafka_2.10-0.8.2.0.tgz) (Messaging system)
 
 ## Launching the application
-#### Clone this repository
+#### Start by cloning this repository
+After cloning the repository, go to the project directory and execute sbt to compile the source code
+
 ```
 > git clone git@github.com:nicocavallo/kafka-twitter-word-count.git
+> cd kafka-twitter-word-count
+> sbt clean test
 ```
 #### Create a Twitter App for running the example
 In case you do not have a twitter developer account, follow [this link](https://twittercommunity.com/t/how-do-i-find-my-consumer-key-and-secret/646) in order to create a Twitter App with your user and getting your consumerKey, consumerSecret, accessToken and accessTokenSecret
@@ -55,7 +59,7 @@ twitter {
 ```
 
 ### Download and install Apache Kafka
-#### [Download Apache Kafka](https://www.apache.org/dyn/closer.cgi?path=/kafka/0.8.2.0/kafka_2.10-0.8.2.0.tgz)
+#### Download [Apache Kafka](https://www.apache.org/dyn/closer.cgi?path=/kafka/0.8.2.0/kafka_2.10-0.8.2.0.tgz)
 #### Un-tar the file
 
 ```
@@ -79,12 +83,12 @@ twitter {
 ...
 ```
 ### Start Producers and Consumers
-#### Go to the project you've just clone
+#### Go to the project you've just cloned
 
 ```
 > sbt 'runMain example.TwitterProducerExample'
 ```
-#### If you want to see what this class is producing, you can go to kafka's installation directory and run console client like this:
+#### If you want to see what this class is producing, you can go to kafka's installation directory and run console consumer like this:
 
 ```
 > bin/kafka-console-consumer.sh --zookeeper localhost:2181 --topic tweetTopic
@@ -114,7 +118,7 @@ twitter {
 }
 ^CConsumed 97 messages
 ```
-#### Now that we are sure our producer is working, we can go to the project's directory again, and in a new terminal, run our next process, the one that is going to split tweets into words
+#### Now that we are sure our producer is working, we can go to the project's directory again, and, in a new terminal, run our next process, the one that is going to split tweets into words
 
 ```
 sbt 'runMain example.TweetToWordListExample'
