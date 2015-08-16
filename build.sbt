@@ -1,3 +1,5 @@
+name := "kafka-twitter-word-count-example"
+
 libraryDependencies ++= Seq(
   "org.apache.kafka" %% "kafka" % "0.8.1"
       exclude("javax.jms", "jms")
