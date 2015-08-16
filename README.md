@@ -1,7 +1,7 @@
 #Kafka Twitter Word Count
 ## Introduction
-This is a Scala project to shown an example of Apache Kafka usage.
-This example illustrates a Technical Talk in [Piscolve](http://www.picsolve.biz/). [Slides](https://www.dropbox.com/s/knamkw9z8g1efqg/Kafka%20Presentation.pptx?dl=0) are also available.
+This is a Scala project to show [Apache Kafka](http://kafka.apache.org/)'s usage.
+This example illustrates 14/07/2015 Technical Talk at [Piscolve](http://www.picsolve.biz/). [Slides](https://www.dropbox.com/s/knamkw9z8g1efqg/Kafka%20Presentation.pptx?dl=0) are also available.
 ### About the example
 This project tends to count the most used words in [twitter](http://twitter.com).
 It is based on activator project [hello-kafka](https://github.com/vngrs/activator-hello-kafka)
@@ -27,7 +27,32 @@ Instead of creating a Gigantic Application to perform those three operations, we
 ```
 > git clone git@github.com:nicocavallo/kafka-twitter-word-count.git
 ```
-#### 
+#### Create a Twitter App for running the example
+In case you do not have a twitter developer account, follow [this link](https://twittercommunity.com/t/how-do-i-find-my-consumer-key-and-secret/646) in order to create a Twitter App with your user and getting your consumerKey, consumerSecret, accessToken and accessTokenSecret
+#### Create a application.conf based on reference.conf
+```
+consumer {
+  group.id = "1234"
+  zookeeper.connect = "127.0.0.1:2181"
+  host = "127.0.0.1"
+  port = "9092"
+  timeOut = "3000"
+  bufferSize = "100"
+  clientId = "typesafe"
+}
+
+producer {
+  metadata.broker.list = "127.0.0.1:9092"
+  serializer.class = "kafka.serializer.StringEncoder"
+}
+
+twitter {
+  consumerKey = "<YOUR_CONSUMER_KEY>"
+  consumerSecret = "<YOUR_CONSUMER_SECRET>"
+  accessToken = "<YOUR_ACCESS_TOKEN>"
+  accessTokenSecret = "<YOUR_ACCESS_TOKEN_SECRET>"
+}
+```
 
 ### Download and install Apache Kafka
 #### [Download Apache Kafka](https://www.apache.org/dyn/closer.cgi?path=/kafka/0.8.2.0/kafka_2.10-0.8.2.0.tgz)
