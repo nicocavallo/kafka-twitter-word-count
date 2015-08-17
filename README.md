@@ -1,7 +1,9 @@
 #Kafka Twitter Word Count
 ## Introduction
-This is a Scala project to show [Apache Kafka](http://kafka.apache.org/)'s usage.
-This example illustrates 14/07/2015 Technical Talk at [Piscolve](http://www.picsolve.biz/). [Slides](https://www.dropbox.com/s/knamkw9z8g1efqg/Kafka%20Presentation.pptx?dl=0) are also available.
+* This is a Scala project to show [Apache Kafka](http://kafka.apache.org/)'s usage.
+* This example illustrates 14/07/2015 Technical Talk at [Piscolve](http://www.picsolve.biz/).
+* [Slides](https://www.dropbox.com/s/knamkw9z8g1efqg/Kafka%20Presentation.pptx?dl=0) are also available.
+
 ### About the example
 This project tends to count the most used words in [twitter](http://twitter.com).
 It is based on activator project [hello-kafka](https://github.com/vngrs/activator-hello-kafka)
@@ -18,7 +20,7 @@ Instead of creating a Gigantic Application to perform those three operations, we
 
 #### The tools
 
-1. [Sbt](http://www.scala-sbt.org/)(Scala Build Tool)
+1. [Sbt](http://www.scala-sbt.org/) (Scala Build Tool)
 2. [TwitterJ](http://twitter4j.org/en/index.html) (Twitter Client)
 3. [Apache Kafka](https://www.apache.org/dyn/closer.cgi?path=/kafka/0.8.2.0/kafka_2.10-0.8.2.0.tgz) (Messaging system)
 
@@ -155,5 +157,6 @@ background log: info: WordCount(office,1)
 ### Improvements
 * Add logging
 * Refactor to add more tests
-* Migrate to Actors Model
+* Migrate to Actor Model
 * Create new examples
+* Implement partition strategy so each word goes to the same partition
