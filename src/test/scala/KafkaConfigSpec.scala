@@ -17,6 +17,6 @@ class KafkaConfigSpec extends FunSuite {
   }
 
   test("Missing keys should be null") {
-    assert(config.getProperty("some.other.key") == null)
+    assert(!Option(config.getProperty("some.other.key")).isDefined)
   }
 }
