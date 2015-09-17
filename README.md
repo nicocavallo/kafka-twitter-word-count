@@ -1,8 +1,6 @@
 #Kafka Twitter Word Count
 
-[![Codacy Badge](https://api.codacy.com/project/badge/6ef3c9419736480fbdafc04814ca87d0)](https://www.codacy.com/app/nicolas-cavallo/kafka-twitter-word-count)
-
-[![Travis Badge](https://travis-ci.org/nicocavallo/kafka-twitter-word-count.svg?branch=master)]
+[![Codacy Badge](https://api.codacy.com/project/badge/6ef3c9419736480fbdafc04814ca87d0)](https://www.codacy.com/app/nicolas-cavallo/kafka-twitter-word-count) ![Travis Badge](https://travis-ci.org/nicocavallo/kafka-twitter-word-count.svg?branch=master)
 
 ## Introduction
 * This is a Scala project to show [Apache Kafka](http://kafka.apache.org/)'s usage.
